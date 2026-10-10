@@ -1,55 +1,25 @@
-# Capteurs et mesures — exploitation MATLAB
+# Sensor Characterization and Conditioning
 
-## Vue d'ensemble
-Scripts MATLAB de tracé et d'exploitation de mesures relevées en TP de capteurs (formation 2023–2026) : sonde Pt100, thermistance CTN (seule, en pont diviseur, avec conditionnement) et capteur de déplacement LVDT.
+MATLAB experiments relating physical quantities to sensor resistance or output voltage. The scripts combine recorded measurements, characteristic curves and conditioning calculations for temperature and displacement sensing.
 
-## Objectifs
-- Tracer la caractéristique de différents capteurs à partir de mesures réelles.
-- Comparer réponse brute et réponse après conditionnement.
-- Approcher une caractéristique par une droite (LVDT).
+## Studies
 
-## Architecture
-| Script | Mesures |
-|---|---|
-| `pt100_resistance_temperature.m` | R de la Pt100 de 107,8 Ω à 142 Ω pour 16 → 110 °C |
-| `ctn_resistance_temperature.m` | R et Rd de la CTN de 15 à 85 °C |
-| `ctn_pont_diviseur.m` | Tension Um du pont diviseur, 20 → 85 °C |
-| `ctn_conditionnement.m` | Tensions Ur / Urd après conditionnement, 20 → 86 °C |
-| `lvdt_caracteristique.m` | 6 séries Um en fonction de la position p (0 → 1), droite Um = 11,2·p − 0,8 |
+| Script in [src](src/) | Measurement or circuit |
+| --- | --- |
+| `ctn_resistance_temperature.m` | NTC resistance versus temperature |
+| `ctn_pont_diviseur.m` | Voltage-divider response for an NTC sensor |
+| `ctn_conditionnement.m` | Temperature-sensor signal conditioning |
+| `pt100_resistance_temperature.m` | Platinum RTD resistance characteristic |
+| `lvdt_caracteristique.m` | LVDT voltage versus displacement |
 
-## Matériel
-Bancs de TP (Pt100, CTN, LVDT, multimètres). Références exactes : À documenter.
+These exercises connect sensor behaviour to the electrical signal an acquisition system receives. The MATLAB arrays contain the measurements used by each study; they are not live device interfaces.
 
-## Logiciel
-MATLAB (fonctions de base `plot`).
+## Run a study
 
-## Implémentation
-Les valeurs mesurées sont saisies en vecteurs dans chaque script puis tracées.
+Open a script in MATLAB and run it independently. Inspect the measurement vectors, units and circuit parameters before comparing curves or changing the experiment.
 
-## Principes d'ingénierie
-- Linéarité de la Pt100 vs non-linéarité exponentielle de la CTN.
-- Linéarisation d'un capteur résistif par pont diviseur.
-- Sensibilité et approximation linéaire d'un LVDT.
+For the LVDT study, distinguish the measured series from the linear reference model in the source. Its plotting commands can replace earlier curves, so the displayed figure alone does not represent every recorded series.
 
-## Résultats
-Courbes générées par les scripts ; figures non incluses : À documenter.
+## Related work
 
-## Difficultés / limites
-Un script de tracé CTN du dossier d'origine n'a pas été repris car sa syntaxe était incomplète.
-
-## Structure
-```
-Capteurs_Mesures_MATLAB/
-├── README.md
-├── .gitignore
-└── src/
-```
-
-## Exécution
-Lancer chaque script dans MATLAB depuis `src/`.
-
-## Médias
-À documenter.
-
-## Compétences
-Instrumentation, capteurs de température et de déplacement, conditionnement, exploitation de mesures sous MATLAB.
+[Instrumentation Physique](https://github.com/tedjelmoulksn-dotcom/Instrumentation_Physique) contains measurement reports; [LabVIEW Instrumentation](https://github.com/tedjelmoulksn-dotcom/LabVIEW_Instrumentation) contains graphical acquisition exercises.
