@@ -1,17 +1,25 @@
-# Sensor Characterisation with MATLAB
+# Sensor Characterization and Conditioning
 
-Measurement analysis for Pt100 temperature sensors, NTC thermistors and an LVDT displacement sensor. Scripts plot measured characteristics and compare direct measurements with conditioning circuits.
+MATLAB experiments relating physical quantities to sensor resistance or output voltage. The scripts combine recorded measurements, characteristic curves and conditioning calculations for temperature and displacement sensing.
 
-## Repository guide
+## Studies
 
-| Location | Contents |
-|---|---|
-| [src/](src/) | Pt100, NTC resistance/divider/conditioning and LVDT plotting scripts |
+| Script in [src](src/) | Measurement or circuit |
+| --- | --- |
+| `ctn_resistance_temperature.m` | NTC resistance versus temperature |
+| `ctn_pont_diviseur.m` | Voltage-divider response for an NTC sensor |
+| `ctn_conditionnement.m` | Temperature-sensor signal conditioning |
+| `pt100_resistance_temperature.m` | Platinum RTD resistance characteristic |
+| `lvdt_caracteristique.m` | LVDT voltage versus displacement |
 
-## Getting started
+These exercises connect sensor behaviour to the electrical signal an acquisition system receives. The MATLAB arrays contain the measurements used by each study; they are not live device interfaces.
 
-Open MATLAB, change to `src/`, and run the selected `.m` script. Measurements are stored directly in each script as numeric vectors; no external acquisition hardware is needed to reproduce the plots.
+## Run a study
 
-## Project context
+Open a script in MATLAB and run it independently. Inspect the measurement vectors, units and circuit parameters before comparing curves or changing the experiment.
 
-Laboratory exercises in sensor response, conditioning and measurement interpretation.
+For the LVDT study, distinguish the measured series from the linear reference model in the source. Its plotting commands can replace earlier curves, so the displayed figure alone does not represent every recorded series.
+
+## Related work
+
+[Instrumentation Physique](https://github.com/tedjelmoulksn-dotcom/Instrumentation_Physique) contains measurement reports; [LabVIEW Instrumentation](https://github.com/tedjelmoulksn-dotcom/LabVIEW_Instrumentation) contains graphical acquisition exercises.
