@@ -2,6 +2,10 @@
 
 MATLAB experiments relating physical quantities to sensor resistance or output voltage. The scripts combine recorded measurements, characteristic curves and conditioning calculations for temperature and displacement sensing.
 
+![Instrumentation Capteurs project overview](assets/project-overview.svg)
+
+*Technical study overview based on the available repository material.*
+
 ## Studies
 
 | Script in [src](src/) | Measurement or circuit |
